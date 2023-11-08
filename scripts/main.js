@@ -1,6 +1,6 @@
 /*
         Alejandro Ruiz Prieto
-        Git-Hub:
+        Git-Hub:https://github.com/Alesso-ai/Practica_Evaluable_Tema_3.git 
 */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
     saludo.innerText = `¡Buenos días, ${nombre}!`;
     document.body.appendChild(saludo);
   };
-
   solicitarNombre();
 
   const nombreCompleto = () => {
@@ -33,13 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
     completo.innerText = `Tu nombre completo (nombre y apellidos) tiene ${totalCaracteres} caracteres, incluyendo espacios.`;
     document.body.appendChild(completo);
   };
-  
+
   nombreCompleto();
-
-
-
-
-
 
   const primeraLetras = () => {};
 
@@ -57,7 +51,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const numeroMayores = () => {};
 
-  const numeroRandom = () => {};
+  const numeroRandom = () => {
+    const numeroRandom = Math.floor(Math.random() * 101);
+    
+  };
+  const numeroAleatorio = numeroRandom();
+  numeroAleatorio();
+
 
   /* const abrirNuevaVentana = () => {
     window.open("https://www.tuniversformacion.es", "_blank");
