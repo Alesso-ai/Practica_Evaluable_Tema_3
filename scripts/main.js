@@ -4,38 +4,46 @@
 */
 
 document.addEventListener("DOMContentLoaded", function () {
-  const nombre = prompt("Introduzca su nombre");
-  const apellido = prompt("Introduzca sus Apellidos");
-  const fechaNac = prompt("Introduzca su fecha de nacimiento DD/MM/YYYY");
+  let nombre = "";
+  let apellidos = "";
+  let dia = "";
+  let mes = "";
+  let año = "";
 
-  const solicitarNombre = () => {
-    const nombre = prompt("Introduzca su nombre");
-    if (nombre === null || nombre.trim() === "") {
-      alert("Debe ingresar obligatoriamente su nombre");
-      solicitarNombre();
-    } else {
-      saludar(nombre);
-    }
-  };
+  while (nombre === "") {
+    nombre = prompt("Ingrese su nombre");
+  }
+
+  while (apellidos === "") {
+    apellidos = prompt("Ingrese su apellido");
+  }
+
+  while (dia === "" || dia < 1 || dia > 31) {
+    dia = prompt("Ingrese su dia de nacimiento");
+  }
+
+  while (mes === "" || mes < 1 || mes > 12) {
+    mes = prompt("Ingrese su mes de nacimiento");
+  }
+
+  while (año === "" || año > new Date().getFullYear()) {
+    año = prompt("Ingrese su año de nacimiento");
+  }
 
   const saludar = (nombre) => {
-    const saludo = document.createElement("div");
-    saludo.innerText = `¡Buenos días, ${nombre}!`;
-    document.body.appendChild(saludo);
-  };
-  solicitarNombre();
-
-  const nombreCompleto = () => {
-    const completo = document.createElement("div");
-    const nombreCompleto = nombre + " " + apellido;
-    const totalCaracteres = nombreCompleto.length;
-    completo.innerText = `Tu nombre completo (nombre y apellidos) tiene ${totalCaracteres} caracteres, incluyendo espacios.`;
-    document.body.appendChild(completo);
+    document.write(`<p>¡Buenos días, ${nombre}!</p>`);
   };
 
-  nombreCompleto();
+  const longitud = (nombre,apellidos)=>{
+    document.write(`<p>Tu nombre completo (nombre y apellidos) tiene ${nombre.length + apellidos.length} caracteres, incluyendo espacios.</p>`);
 
-  const primeraLetras = () => {};
+  };
+
+
+
+  const primeraLetras = (nombre) => {
+    document.write(`<p>La primera 'A' de tu nombre está en la posicion ${nombre.toLowerCase().indexOf('a') + 1} </p>`);
+  };
 
   const ultimaLetras = () => {};
 
@@ -51,23 +59,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const numeroMayores = () => {};
 
-  const numeroRandom = () => {
-    const numeroRandom = Math.floor(Math.random() * 101);
-    
-  };
-  const numeroAleatorio = numeroRandom();
-  numeroAleatorio();
+  
 
+  document.open();
+  document.write("<h1>Prática 3 - DWEC </h1> <hr>");
+  saludar(nombre);
+  longitud(nombre,apellidos);
+  primeraLetras(nombre);
+  document.close();
 
-  /* const abrirNuevaVentana = () => {
-    window.open("https://www.tuniversformacion.es", "_blank");
-  };
-
-  document.getElementById("anchoVentana").textContent = window.innerWidth;
-
-  document.getElementById("urlActual").textContent = window.location.href;
-
-  const ventana = window.open('https://www.tuniversformacion.es' , 'width=800', 'height=600', 'resizable=no');
-
-  */
+ 
 });
