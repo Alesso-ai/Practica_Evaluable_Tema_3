@@ -34,39 +34,96 @@ document.addEventListener("DOMContentLoaded", function () {
     document.write(`<p>¡Buenos días, ${nombre}!</p>`);
   };
 
-  const longitud = (nombre,apellidos)=>{
-    document.write(`<p>Tu nombre completo (nombre y apellidos) tiene ${nombre.length + apellidos.length} caracteres, incluyendo espacios.</p>`);
-
+  const longitud = (nombre, apellidos) => {
+    document.write(
+      `<p>Tu nombre completo (nombre y apellidos) tiene ${
+        nombre.length + apellidos.length
+      } caracteres, incluyendo espacios.</p>`
+    );
   };
-
-
 
   const primeraLetras = (nombre) => {
-    document.write(`<p>La primera 'A' de tu nombre está en la posicion ${nombre.toLowerCase().indexOf('a') + 1} </p>`);
+    document.write(
+      `<p>La primera 'A' de tu nombre está en la posicion ${
+        nombre.toLowerCase().indexOf("a") + 1
+      } .</p>`
+    );
   };
 
-  const ultimaLetras = () => {};
+  const ultimaLetras = (nombre) => {
+    document.write(
+      `<p>La ultima 'A' de tu nombre está en la posicion ${
+        nombre.toLowerCase().lastIndexOf("a") + 1
+      }. </p>`
+    );
+  };
 
-  const tresLetrasMenos = () => {};
+  const tresLetrasMenos = (nombre, apellidos) => {
+    document.write(
+      `<p>Tu nombre menos las tres primeras letras es  ${nombre
+        .toUpperCase()
+        .slice(3)} ${apellidos.toUpperCase()}. </p>`
+    );
+  };
 
-  const nombreMayus = () => {};
+  const nombreMayus = (nombre, apellidos) => {
+    document.write(
+      `<p>Tu nombre en mayusculas es ${nombre.toUpperCase()} ${apellidos.toUpperCase()}.</p>`
+    );
+  };
 
-  const mostrarEdad = () => {};
+  const mostrarEdad = (año) => {
+    const añoActual = new Date().getFullYear();
+    const edad = añoActual - año;
+    document.write(`<p>Tu edad es de ${edad} años</p>`);
+  };
 
-  const estaciones = () => {};
+  const estaciones = (dia, mes) => {
+    if (
+      (dia >= 21 && mes === 3) ||
+      mes === 4 ||
+      mes === 5 ||
+      (dia <= 20 && mes === 6)
+    ) {
+      return "primavera";
+    } else if (
+      (dia >= 21 && mes === 6) ||
+      mes === 7 ||
+      mes === 8 ||
+      (dia <= 22 && mes === 9)
+    ) {
+      return "verano";
+    } else if (
+      (dia >= 23 && mes === 9) ||
+      mes === 10 ||
+      mes === 11 ||
+      (dia <= 20 && mes === 12)
+    ) {
+      return "otoño";
+    } else if (
+      (dia >= 21 && mes === 12) ||
+      mes === 1 ||
+      mes === 2 ||
+      (dia <= 20 && mes === 3)
+    ) {
+      return "invierno";
+    }
+    
+  };
 
   const coseno = () => {};
 
   const numeroMayores = () => {};
 
-  
-
   document.open();
   document.write("<h1>Prática 3 - DWEC </h1> <hr>");
   saludar(nombre);
-  longitud(nombre,apellidos);
+  longitud(nombre, apellidos);
   primeraLetras(nombre);
+  ultimaLetras(nombre);
+  tresLetrasMenos(nombre, apellidos);
+  nombreMayus(nombre, apellidos);
+  mostrarEdad(año);
+  document.write(`<p>Naciste un feliz ${estaciones(parseInt(dia), parseInt(mes))} del año ${año} </p>`);
   document.close();
-
- 
 });
