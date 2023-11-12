@@ -145,4 +145,38 @@ document.addEventListener("DOMContentLoaded", function () {
   const resultadoRandom = random();
   document.write(`<p>El numero aleatorio entre 0 y 100 es: ${resultadoRandom}</p>`);
   document.close();
+
+  function abrirVentana() {
+    // Obtén la URL completa de la ventana actual
+    const urlActual = window.location.href;
+  
+    // Obtén el protocolo utilizado
+    const protocolo = window.location.protocol;
+  
+    // Especifica las propiedades de la nueva ventana
+    const opcionesVentana = "width=800,height=600,resizable=no";
+  
+    // Abre la nueva ventana
+    const nuevaVentana = window.open("https://tuniversformacion.es/", "_blank", opcionesVentana);
+  
+    // Muestra la URL completa y el protocolo en la nueva ventana
+    nuevaVentana.document.write(`<p>URL Completa: ${urlActual}</p>`);
+    nuevaVentana.document.write(`<p>Protocolo: ${protocolo}</p>`);
+  
+    // Abre un iframe en la nueva ventana con el contenido de la página web
+    nuevaVentana.document.write(
+      `<iframe src="${urlActual}" width="100%" height="80%"></iframe>`
+    );
+  }
+  
+  // Llama a la función para abrir la ventana
+  abrirVentana();
+  
+  
+
+
+
+
+
+
 });
