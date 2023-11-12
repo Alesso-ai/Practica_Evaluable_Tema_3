@@ -111,9 +111,22 @@ document.addEventListener("DOMContentLoaded", function () {
     
   };
 
-  const coseno = () => {};
+  const coseno = () => {
+    const grados = 180;
+    const radianes = grados * (Math.PI / 180);
+    return Math.cos(radianes);
+  };
 
-  const numeroMayores = () => {};
+  const numeroMayores = () => {
+    const numeros = [34, 67, 23, 75, 35, 19];
+    const mayor = Math.max(...numeros);
+    return mayor;
+  };
+
+  const random = () => {
+    return Math.floor(Math.random() * 101);
+    
+  };
 
   document.open();
   document.write("<h1>Prática 3 - DWEC </h1> <hr>");
@@ -124,6 +137,12 @@ document.addEventListener("DOMContentLoaded", function () {
   tresLetrasMenos(nombre, apellidos);
   nombreMayus(nombre, apellidos);
   mostrarEdad(año);
-  document.write(`<p>Naciste un feliz ${estaciones(parseInt(dia), parseInt(mes))} del año ${año} </p>`);
+  const resultadoCoseno = coseno();
+  document.write(`<p>Naciste un feliz dia ${estaciones(parseInt(dia), parseInt(mes))} del año ${año} </p>`);
+  document.write(`<p>El coseno de 180 grados es: ${resultadoCoseno}</p>`);
+  const resultadoNumeroMayor = numeroMayores();
+  document.write(`<p>El número mayor de [34, 67, 23, 75, 35, 19] es : ${resultadoNumeroMayor}</p>`);
+  const resultadoRandom = random();
+  document.write(`<p>El numero aleatorio entre 0 y 100 es: ${resultadoRandom}</p>`);
   document.close();
 });
