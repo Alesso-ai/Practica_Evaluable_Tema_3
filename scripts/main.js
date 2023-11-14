@@ -108,7 +108,6 @@ document.addEventListener("DOMContentLoaded", function () {
     ) {
       return "invierno";
     }
-    
   };
 
   const coseno = () => {
@@ -125,7 +124,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const random = () => {
     return Math.floor(Math.random() * 101);
-    
   };
 
   document.open();
@@ -138,45 +136,30 @@ document.addEventListener("DOMContentLoaded", function () {
   nombreMayus(nombre, apellidos);
   mostrarEdad(año);
   const resultadoCoseno = coseno();
-  document.write(`<p>Naciste un feliz dia ${estaciones(parseInt(dia), parseInt(mes))} del año ${año} </p>`);
+  document.write(
+    `<p>Naciste un feliz dia ${estaciones(
+      parseInt(dia),
+      parseInt(mes)
+    )} del año ${año} </p>`
+  );
   document.write(`<p>El coseno de 180 grados es: ${resultadoCoseno}</p>`);
   const resultadoNumeroMayor = numeroMayores();
-  document.write(`<p>El número mayor de [34, 67, 23, 75, 35, 19] es : ${resultadoNumeroMayor}</p>`);
+  document.write(
+    `<p>El número mayor de [34, 67, 23, 75, 35, 19] es : ${resultadoNumeroMayor}</p>`
+  );
   const resultadoRandom = random();
-  document.write(`<p>El numero aleatorio entre 0 y 100 es: ${resultadoRandom}</p>`);
+  document.write(
+    `<p>El numero aleatorio entre 0 y 100 es: ${resultadoRandom}</p>`
+  );
   document.close();
 
-  function abrirVentana() {
-    // Obtén la URL completa de la ventana actual
-    const urlActual = window.location.href;
-  
-    // Obtén el protocolo utilizado
-    const protocolo = window.location.protocol;
-  
-    // Especifica las propiedades de la nueva ventana
-    const opcionesVentana = "width=800,height=600,resizable=no";
-  
-    // Abre la nueva ventana
-    const nuevaVentana = window.open("https://tuniversformacion.es/", "_blank", opcionesVentana);
-  
-    // Muestra la URL completa y el protocolo en la nueva ventana
-    nuevaVentana.document.write(`<p>URL Completa: ${urlActual}</p>`);
-    nuevaVentana.document.write(`<p>Protocolo: ${protocolo}</p>`);
-  
-    // Abre un iframe en la nueva ventana con el contenido de la página web
-    nuevaVentana.document.write(
-      `<iframe src="${urlActual}" width="100%" height="80%"></iframe>`
-    );
-  }
-  
-  // Llama a la función para abrir la ventana
-  abrirVentana();
-  
-  
+  // Abre la nueva ventana
+  const abrirVentana = () => {
+    window.open("ventanaExterior.html", "", "resizable=no");
+  };
 
-
-
-
-
-
+  const miBoton = document.createElement("button");
+  miBoton.textContent = "Abrir Ventana";
+  miBoton.addEventListener("click", abrirVentana);
+  document.body.appendChild(miBoton);
 });
