@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let dia = "";
   let mes = "";
   let año = "";
+  let nuevaVentana;
 
   while (nombre === "") {
     nombre = prompt("Ingrese su nombre");
@@ -153,13 +154,18 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   document.close();
 
-  // Abre la nueva ventana
-  const abrirVentana = () => {
-    window.open("ventanaExterior.html", "", "resizable=no");
+  const abrirVentana = (ventanaPadre) => {
+    if (!ventanaPadre.nuevaVentana || ventanaPadre.nuevaVentana.closed) {
+      ventanaPadre.nuevaVentana = window.open(
+        "ventanaExterior.html",
+        "",
+        "resizable=no,width=800,height=600"
+      );
+    }
   };
 
   const miBoton = document.createElement("button");
   miBoton.textContent = "Abrir Ventana";
-  miBoton.addEventListener("click", abrirVentana);
+  miBoton.addEventListener("click", () => abrirVentana(window));
   document.body.appendChild(miBoton);
 });
